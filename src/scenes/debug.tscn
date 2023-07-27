@@ -5,7 +5,7 @@
 [node name="debug" type="Node2D"]
 
 [node name="player" type="Node2D" parent="."]
-position = Vector2(151, 74)
+position = Vector2(317, 169)
 script = ExtResource("1_8q3kn")
 
 [node name="player_sprite" type="Sprite2D" parent="player"]
