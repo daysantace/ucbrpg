@@ -9,3 +9,7 @@ position = Vector2(317, 169)
 script = ExtResource("1_8q3kn")
 
 [node name="player_sprite" type="Sprite2D" parent="player"]
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

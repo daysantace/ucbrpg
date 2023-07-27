@@ -1,5 +1,6 @@
 extends Node2D
 @onready var sprite = $player_sprite
+@onready var scaler = load("res://scripts/scale.gd")
 
 func _process(delta):
 	# positions
@@ -37,35 +38,16 @@ func _process(delta):
 			tex = "up"	
 	
 	# movement
-	var movement = Vector2(0,0)
-	var speed = 45
+	var speed = 45*3
 	if Input.is_action_pressed("sprint"):
-		speed = 90
-	const sq2 = 1.4142
-	
-	if Input.is_action_pressed("left_mouse"):
-		match tex:
-			"up":
-				movement = Vector2(0,-speed)*delta
-			"upright":
-				movement = Vector2(speed,-speed)*delta/sq2
-			"right":
-				movement = Vector2(speed,0)*delta
-			"downright":
-				movement = Vector2(speed,speed)*delta/sq2
-			"down":
-				movement = Vector2(0,speed)*delta
-			"downleft":
-				movement = Vector2(-speed,speed)*delta/sq2
-			"left":
-				movement = Vector2(-speed,0)*delta
-			"upleft":
-				movement = Vector2(-speed,-speed)*delta/sq2
-		position+=movement
-		
+		speed = 90*3
+	var move_dir = (mpos - global_position).normalized()
+	position += move_dir * speed * delta
 	# render sprite
 	sprite.texture = load("res://assets/textures/poland/poland_"+tex+".png")
 	
 	# scale
-	load("res://scripts/scale.gd")
-	self.scale = Vector2()
+	self.scale = Vector2(3,3)
+	
+	# primary camera
+	get_viewport().camera = $camera

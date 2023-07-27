@@ -2,18 +2,12 @@ extends Node2D
 
 
 # figure out scale
-func screenscale():
+func scale():
 	# get screen size
 	var wsize = get_viewport().size
 	var ww = wsize.x
 	var wh = wsize.y
 	var scaletimes = 1
-	
-	# rescale screen if smaller than 640x360
-	if wh > 360:
-		get_tree().get_root().set_size(Vector2(ww,360))
-	if ww > 640:
-		get_tree().get_root().set_size(Vector2(640,wh))
 		
 	# calculate how many times bigger screen is to 640x360
 	var wtimes = round(ww/640)
@@ -22,4 +16,9 @@ func screenscale():
 		scaletimes = htimes
 	else:
 		scaletimes = wtimes
+	
+	if wh < 360 or ww < 640: # catch for small screens
+		scaletimes = 1
+	
+	print("Scale %sscaletimes")
 	return scaletimes
