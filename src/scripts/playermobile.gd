@@ -10,39 +10,10 @@ func _process(delta):
 
 	# movement
 	var speed = 45
-	if Input.is_action_pressed("sprint"):
-		speed = 90
 	var movdir = Vector2(0, 0)
-
-	if Input.is_action_pressed("up"):
-		movdir.y = -1
-	if Input.is_action_pressed("down"):
-		movdir.y = 1
-	if Input.is_action_pressed("left"):
-		movdir.x = -1
-	if Input.is_action_pressed("right"):
-		movdir.x = 1
 	
 	# decide what sprite to load for poland
-	# if pourando is moving
-	if movdir != Vector2(0,0):
-		if movdir == Vector2(0, 1):
-			tex = "down"
-		elif movdir == Vector2(1, 1):
-			tex = "downright"
-		elif movdir == Vector2(1, 0):
-			tex = "right"
-		elif movdir == Vector2(1, -1):
-			tex = "upright"
-		elif movdir == Vector2(0, -1):
-			tex = "up"
-		elif movdir == Vector2(-1, -1):
-			tex = "upleft"
-		elif movdir == Vector2(-1, 0):
-			tex = "left"
-		elif movdir == Vector2(-1, 1):
-			tex = "downleft"
-	elif ppos.distance_to(mpos) >= 100:
+	if ppos.distance_to(mpos) >= 100:
 		var direction = ((360 + int(rad_to_deg(atan2(mpos.y - ppos.y, mpos.x - ppos.x)))) % 360)
 		direction+=90
 		if direction >= 360:
