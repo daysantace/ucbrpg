@@ -1,3 +1,9 @@
+res://scenes/menu.tscn
 res://scenes/debug.tscn
-res://scripts/player.gd
-res://scripts/playermobile.gd
+res://scripts/menu.gd
+res://scripts/player/player.gd
+res://scripts/player/camera.gd
+res://scenes/player.tscn
+res://scenes/scenes/debug.tscn
+res://scenes/scenes/menu.tscn
+res://scenes/objects/player.tscn

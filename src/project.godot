@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Untitled Countryball RPG"
-run/main_scene="res://scenes/debug.tscn"
+run/main_scene="res://scenes/scenes/menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
 
 [input]
 
@@ -54,4 +58,5 @@ down={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
